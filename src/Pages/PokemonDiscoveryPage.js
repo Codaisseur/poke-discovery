@@ -7,7 +7,8 @@ function PokemonDiscoveryPage() {
   const [pokeList, setPokeList] = useState(null);
   const [filter, setFilter] = useState("");
   const params = useParams()
-  
+  const navigate = useNavigate();
+
   useEffect(() => {
     async function getPokemons() {
       const pokeResponse = await axios.get(
@@ -19,10 +20,14 @@ function PokemonDiscoveryPage() {
     if (params.filter) {
       setFilter(params.filter);
     }
+    else {
+      setFilter("");
+    }
   }, []);
 
   const updateFilter = (e) => {
     setFilter(e.target.value);
+    navigate(`/${e.target.value}`);
   }
 
   return (
