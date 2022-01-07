@@ -13,7 +13,9 @@ function App() {
         </NavLink>
       </div>
       <Routes>
-        <Route path="/" element={<PokemonDiscoveryPage />} />
+        <Route path="/" element={<PokemonDiscoveryPage />}>
+          <Route path=":filter" element={<PokemonDiscoveryPage />}/>
+        </Route>
         <Route path="/details/:pokemon_name" element={<PokemonDetailPage />} />
       </Routes>
     </div>

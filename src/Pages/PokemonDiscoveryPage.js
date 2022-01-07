@@ -6,6 +6,7 @@ import PokemonBlock from "../Components/PokemonBlock";
 function PokemonDiscoveryPage() {
   const [pokeList, setPokeList] = useState(null);
   const [filter, setFilter] = useState("");
+  const params = useParams()
   
   useEffect(() => {
     async function getPokemons() {
@@ -15,6 +16,9 @@ function PokemonDiscoveryPage() {
       setPokeList(pokeResponse.data.results);
     }
     getPokemons();
+    if (params.filter) {
+      setFilter(params.filter);
+    }
   }, []);
 
   const updateFilter = (e) => {
