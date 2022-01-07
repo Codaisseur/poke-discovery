@@ -1,16 +1,20 @@
 import "./App.css";
-import {Routes, Route, NavLink} from 'react-router-dom';
-import PokemonDiscoveryPage from './Pages/PokemonDiscoveryPage';
+import { Routes, Route, NavLink } from "react-router-dom";
+import PokemonDiscoveryPage from "./Pages/PokemonDiscoveryPage";
+import PokemonDetailPage from "./Pages/PokemonDetailPage";
 
 function App() {
   return (
     <div className="App">
       <h1>◓ Pokemon Discovery ◓</h1>
       <div className="AppNav">
-        <NavLink className='NavElement' end to="/">Home</NavLink>
+        <NavLink className="NavElement" end to="/">
+          Home
+        </NavLink>
       </div>
       <Routes>
-        <Route path="/" element={<PokemonDiscoveryPage/>} />
+        <Route path="/" element={<PokemonDiscoveryPage />} />
+        <Route path="/details/:pokemon_name" element={<PokemonDetailPage />} />
       </Routes>
     </div>
   );
