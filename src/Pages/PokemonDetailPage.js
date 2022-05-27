@@ -6,7 +6,7 @@ function PokemonDetailPage() {
   const routeParams = useParams();
   const [pokemon, setPokemon] = useState(null);
 
-  useEffect(async () => {
+  useEffect(() => {
     async function getPokemonDetails() {
       const pokemonResponse = await axios.get(
         `https://pokeapi.co/api/v2/pokemon/${routeParams.pokemon_name}`
